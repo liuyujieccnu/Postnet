@@ -1,1 +1,1 @@
-console.log("Hello World");
+var main = require("./lib/main.js");
