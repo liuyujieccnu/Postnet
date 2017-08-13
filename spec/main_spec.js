@@ -47,20 +47,26 @@ describe("邮编转换测试", function () {
         var expect_string ='校验码出错，条码无效';
         expect(expect_string).to.equal(result);
     });
-    it("输入错误", function(){
+    it("输入错误，数字码错误", function(){
         var result = main('55555-12');
         var expect_string ='输入无效';
         expect(expect_string).to.equal(result);
     });
 
-    it("输入错误", function(){
+    it("输入错误，无前'|'", function(){
         var result = main(':|:|::|:|::|:|::|:|::|:|::::||::|:|::||:|:::||::|:|');
         var expect_string ='输入无效';
         expect(expect_string).to.equal(result);
     });
 
-    it("输入错误", function(){
+    it("输入错误，无后'|'", function(){
         var result = main('|:|:|::|:|::|:|::|:|::|:|::::||::|:|::||:|:::||::|:');
+        var expect_string ='输入无效';
+        expect(expect_string).to.equal(result);
+    });
+
+    it("输入错误，条码位数错误", function(){
+        var result = main('|:|:|::|:|::|:|::|:|::|:|::||::|:|::||:|:::||::|:|');
         var expect_string ='输入无效';
         expect(expect_string).to.equal(result);
     });
